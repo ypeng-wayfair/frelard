@@ -33,6 +33,21 @@ namespace FrelardAPI.Controllers
 
         public void updateInventory(string sku, int newInventoryLevel)
         {
+            if(string.IsNullOrEmpty(sku) || newInventoryLevel < 0)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+
+            var sql = "update tblFrelardMockup SET Inventory_Level = @newInv where sku = @sku";
+            using (SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Default"].ConnectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add(new SqlParameter("@newInv", newInventoryLevel));
+                cmd.Parameters.Add(new SqlParameter("@sku", sku));
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
 
         }
     }
