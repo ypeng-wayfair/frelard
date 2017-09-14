@@ -31,7 +31,7 @@ namespace FrelardAPI.Controllers
             return "updated !";
         }
 
-        public void updateInventory(string sku, int newInventoryLevel)
+        public HttpResponseMessage updateInventory(string sku, int newInventoryLevel)
         {
             if(string.IsNullOrEmpty(sku) || newInventoryLevel < 0)
             {
@@ -48,7 +48,7 @@ namespace FrelardAPI.Controllers
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
-
+            return new HttpResponseMessage(HttpStatusCode.OK);
         }
     }
 }
