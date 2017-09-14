@@ -28,7 +28,7 @@ namespace FrelardAPI.Controllers
                 }
                 conn.Close();
             }
-            return ret;
+            return "updated !";
         }
 
         public void updateInventory(string sku, int newInventoryLevel)
