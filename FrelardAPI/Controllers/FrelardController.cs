@@ -13,22 +13,27 @@ namespace FrelardAPI.Controllers
     {
         public string get()
         {
-            var ret = "foobarz";
-            //using (SQLiteConnection sqlite_conn = new SQLiteConnection(@"Data Source=E:\SandBox\FrelardAPI\FrelardAPI\data\testa.db;Version=3;"))
-            //{
-            //    sqlite_conn.Open();
-            //    var sql = "select * from tbltest";
-            //    SQLiteCommand cmd = new SQLiteCommand(sql, sqlite_conn);
-            //    using(SQLiteDataReader reader = cmd.ExecuteReader())
-            //    {
-            //        while(reader.Read())
-            //        {
-            //            ret += reader[0].ToString() + "," + reader[0].ToString() + "<br>";
-            //        }
-            //    }
-
-            //}
+            var ret = "";
+            using (SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Default"].ConnectionString))
+            {
+                var sql = "select * from [dbo].[tblFrelardMockup]";
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ret += reader[0].ToString() + "," + reader[0].ToString() + "<br>";
+                    }
+                }
+                conn.Close();
+            }
             return ret;
+        }
+
+        public void updateInventory(string sku, int newInventoryLevel)
+        {
+
         }
     }
 }
