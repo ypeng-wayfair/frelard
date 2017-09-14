@@ -87,6 +87,5 @@ E:\SandBox\github\frelard\FrelardAPI\bin\Newtonsoft.Json.xml
 E:\SandBox\github\frelard\FrelardAPI\bin\System.Net.Http.Formatting.xml
 E:\SandBox\github\frelard\FrelardAPI\bin\System.Web.Http.xml
 E:\SandBox\github\frelard\FrelardAPI\bin\System.Web.Http.WebHost.xml
-E:\SandBox\github\frelard\FrelardAPI\obj\Debug\FrelardAPI.csprojResolveAssemblyReference.cache
 E:\SandBox\github\frelard\FrelardAPI\obj\Debug\FrelardAPI.dll
 E:\SandBox\github\frelard\FrelardAPI\obj\Debug\FrelardAPI.pdb
